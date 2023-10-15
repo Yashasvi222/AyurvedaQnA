@@ -1,11 +1,13 @@
 import React from 'react';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import SignInScreen from './src/screens/SignInScreen';
+import SignInScreen from './src/screens/SignInScreen/SignInScreen';
+import SignUpScreen from './src/screens/SignUpScreen/SignUpScreen';
 
 const App = () => {
   return (
     <SafeAreaView style={styles.root}>
-      <SignInScreen />
+      {/* <SignInScreen />/ */}
+      <SignUpScreen />
     </SafeAreaView>
   )
 }
@@ -18,5 +20,3 @@ const styles = StyleSheet.create({
 });
 
 export default App;
-
-//Test commit
