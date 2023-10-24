@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, useWindowDimensions, Image } from 'react-native'
+import { View, Text, StyleSheet, useWindowDimensions, Image, StatusBar } from 'react-native'
 import React, {useState} from 'react'
 import CustomInput from '../../components/CustomInput'
 import CustomButton from '../../components/CustomButton/index.js'
@@ -18,7 +18,8 @@ const SignInScreen = () => {
   }
 
   return (
-    <View style={styles.root}>
+    <View style={[styles.root, {height: height}]}>
+      <StatusBar backgroundColor="black" />
       <Image source={UpperGlaze}
       />
       <Image source={Ayurbot}
@@ -51,7 +52,6 @@ const SignInScreen = () => {
 const styles = StyleSheet.create({
   root: {
     alignItems: 'center',
-    height: 732,
   },
 
   upper_glaze: {
