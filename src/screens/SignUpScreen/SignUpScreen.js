@@ -19,11 +19,37 @@ const SignUpScreen = () => {
   return (
     <View style={styles.root}>
       <Text style={styles.title}>Create an Account</Text>
-      <CustomInput placeholder="Username" value={username} setValue={setUsername} secureTextEntry={false} />
-      <CustomInput placeholder="Email Id" value={email} setValue={setEmail} secureTextEntry={false} />
-      <CustomInput placeholder="Password" value={password} setValue={setPassword} secureTextEntry={true} />
-      <CustomInput placeholder="Confirm Password" value={confirmPassword} setValue={setConfirmPassword} secureTextEntry={true}/>
-      <CustomButton text="Register" onPress={onRegisterPressed}/>
+      <CustomInput 
+      placeholder="Username" 
+      value={username} 
+      setValue={setUsername} 
+      secureTextEntry={false} 
+      />
+       
+      <CustomInput 
+      placeholder="Email Id" 
+      value={email} 
+      setValue={setEmail} 
+      secureTextEntry={false} 
+      />
+       
+      <CustomInput 
+      placeholder="Set Password" 
+      value={password} 
+      setValue={setPassword} 
+      secureTextEntry={true} 
+      />
+
+      <CustomInput 
+      placeholder="Confirm Password" 
+      value={confirmPassword} 
+      setValue={setConfirmPassword} 
+      secureTextEntry={true}
+      />
+      <CustomButton 
+      text="Register" 
+      onPress={onRegisterPressed}
+      />
       <Text>By registering, you confirm that you accept our <Text> Terms of Use </Text> and <Text>Privacy Policy</Text></Text>
     </View>
   )
@@ -31,14 +57,16 @@ const SignUpScreen = () => {
 
 const styles = StyleSheet.create({
     root: {
+      // position: 'relative',
         alignItems: 'center',
         padding: 20,
     },
     title: {
+      // position: 'absolute',
       fontSize: 32,
       fontWeight: 'bold',
       color: '#957E60',
-      margin: 10,
+      margin: 10,      
     }
 })
 

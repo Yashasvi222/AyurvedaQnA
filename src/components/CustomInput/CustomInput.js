@@ -17,19 +17,22 @@ const CustomInput = ({value, setValue, placeholder, secureTextEntry}) => {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#C6A286',
+        backgroundColor: '#883D33',
         width: 280,
         height: 38.68,
 
         borderColor: '#957E60',
         borderWidth: 1,
+        borderRadius: 50,
 
         paddingHorizontal: 10,
         paddingTop: 3,
-        marginVertical: 19.31,
+        marginTop: 17,
     },
 
-    input: {},
+    input: {
+      color: '#ffffff',
+    },
 });
 
 export default CustomInput
