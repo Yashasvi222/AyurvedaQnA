@@ -11,7 +11,7 @@ const SignInScreen = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   
-  const {height} = useWindowDimensions();
+  const {height, width} = useWindowDimensions();
 
   const onSignInPressed = () => {
     console.warn("NKBH")
@@ -20,29 +20,36 @@ const SignInScreen = () => {
   return (
     <View style={[styles.root, {height: height}]}>
       <StatusBar backgroundColor="black" />
+
       <Image source={UpperGlaze}
+        style= {{width: width}}
       />
+
       <Image source={Ayurbot}
         style={styles.logo}
       />
+
       <CustomInput 
       placeholder="Username" 
       value={username} 
       setValue={setUsername} 
       secureTextEntry={false}
       />
+
       <CustomInput 
       placeholder="Password" 
       value={password} 
       setValue={setPassword} 
       secureTextEntry={true}
       />
+      
       <CustomButton 
       text="Sign In" 
       onPress={onSignInPressed}
       />
+      
       <Image source={LowerGlaze}
-        style={styles.lower_glaze}
+        style={[styles.lower_glaze, {top: height-height*0.2, width: width}]}
       />
     </View>
   )
@@ -70,7 +77,6 @@ const styles = StyleSheet.create({
 
   lower_glaze: {
     position: 'absolute',
-    top: 600,
   }
 })
 export default SignInScreen
