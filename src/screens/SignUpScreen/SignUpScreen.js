@@ -61,7 +61,8 @@ const SignUpScreen = () => {
       />
 
       <CustomButton 
-      text="Register" 
+      text="Register"
+      color="#629035" 
       onPress={onRegisterPressed}
       />
 

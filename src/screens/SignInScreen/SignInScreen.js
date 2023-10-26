@@ -45,6 +45,7 @@ const SignInScreen = () => {
       
       <CustomButton 
       text="Sign In" 
+      color="#629035"
       onPress={onSignInPressed}
       />
       

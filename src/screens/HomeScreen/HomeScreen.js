@@ -52,7 +52,7 @@ const HomeScreen = () => {
 
       <View 
         style={[styles.getStartedContainer, {top: height-1.014*height}]}>
-        <CustomButton text="Get Started"/>
+        <CustomButton text="Get Started" color="#883D33"/>
       </View>
 
       <Image source={Grass}

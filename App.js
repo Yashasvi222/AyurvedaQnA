@@ -7,10 +7,9 @@ import HomeScreen from './src/screens/HomeScreen/HomeScreen';
 const App = () => {
   return (
     <ScrollView style={styles.root}>
-      
-      {/* <SignInScreen /> */}
-      {/* <SignUpScreen /> */}
-      <HomeScreen/>
+      <HomeScreen/>   
+      {/* <SignInScreen />
+      <SignUpScreen /> */}
     </ScrollView>
   )
 }
