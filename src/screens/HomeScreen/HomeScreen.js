@@ -38,16 +38,38 @@ const HomeScreen = () => {
         <Text style={styles.tagline}>Ayurveda at your Fingertips Your Health, Your Way</Text>
       </View>
 
+      <Image source={LeftLeaf}
+        style={[styles.left_leaf, {top:height-1.22*height, left: width-1.451*width}]}
+      />
+
+      <Image source={RightLeaf}
+        style={[styles.right_leaf, {top:height-1.22*height, left: width-0.558*width}]}
+      />
+
       <Image source={LowerGlaze}
         style={[styles.lower_glaze, {top: height-height*0.273, width: width}]}
       />
 
-      <CustomButton style={styles.get_started}
-      text="Get Started"
+      <View 
+        style={[styles.getStartedContainer, {top: height-1.014*height}]}>
+        <CustomButton text="Get Started"/>
+      </View>
+
+      <Image source={Grass}
+        style={[styles.grass, {top:height-height*1.08, left: width-width*1.448}]}
       />
 
-      
+      <Image source={Grass2}
+        style={[styles.grass2, {top:height-height*1.116, left: width-width*1.15}]}
+      />
 
+      <Image source={Grass3}
+        style={[styles.grass3, {top:height-height*1.172, left: width-width*0.916}]}
+      />  
+
+      <Image source={Grass1}
+        style={[styles.grass3, {top:height-height*1.2591, left: width-width*0.562}]}
+      />      
 
     </View>
   )
@@ -60,7 +82,6 @@ const styles = StyleSheet.create({
 
   upper_glaze: {
     position: 'absolute',
-
     resizeMode: 'contain',
   },  
 
@@ -90,11 +111,6 @@ const styles = StyleSheet.create({
   lower_glaze: {
     position: 'absolute',
   },
-
-  get_started: {
-    marginTop: 50,
-  },
-
 
 })
 
