@@ -6,7 +6,7 @@ const CustomInput = ({value, setValue, placeholder, secureTextEntry}) => {
     <View style={styles.container}>
       <TextInput
         placeholder={placeholder}
-        placeholderTextColor="#FFF"
+        placeholderTextColor='rgba(255, 255, 255, 0.6)'
         value={value}
         onChangeText={setValue}
         style={styles.input}
@@ -29,6 +29,15 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         paddingTop: 3,
         marginTop: 17,
+
+        //shadow for iOS
+        shadowColor: 'black',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.9,
+        shadowRadius: 3,
+
+        //shadow for Android
+        elevation: 10,
     },
 
     input: {

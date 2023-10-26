@@ -20,6 +20,14 @@ const styles = StyleSheet.create({
 
         borderRadius: 50,
 
+        //shadow for iOS
+        shadowColor: 'black',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.9,
+        shadowRadius: 3,
+
+        //shadow for Android
+        elevation: 10,
     },
     text: {
         fontWeight: 'bold',

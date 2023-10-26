@@ -7,8 +7,8 @@ const App = () => {
   return (
     <ScrollView style={styles.root}>
       
-      <SignInScreen />
-      {/* <SignUpScreen /> */}
+      {/* <SignInScreen /> */}
+      <SignUpScreen />
     </ScrollView>
   )
 }
