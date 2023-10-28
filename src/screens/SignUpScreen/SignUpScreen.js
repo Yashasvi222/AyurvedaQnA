@@ -15,8 +15,32 @@ const SignUpScreen = () => {
   const {height, width} = useWindowDimensions();
 
   const onRegisterPressed = () => {
-    console.warn("Registered")
-  }
+    if (!username) {
+      console.warn('Please enter a username.');
+    } else if (!email) {
+      console.warn('Please enter your email address.');
+    } else if (!validateEmail(email)) {
+      console.warn('Please enter a valid email address.');
+    } else if (!password) {
+      console.warn('Please enter a password.');
+    } else if (!validatePassword(password)) {
+      console.warn('Password must be at least 6 characters long and contain at least one number, one lowercase letter, and one uppercase letter.');
+    } else if (password !== confirmPassword) {
+      console.warn('Passwords do not match!');
+    } else {
+      console.warn('Registered');
+    }
+  };
+  
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validatePassword = (password) => {
+    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    return passwordRegex.test(password);
+  };
 
   return (
     <View style={[styles.root, {height: height}]}>

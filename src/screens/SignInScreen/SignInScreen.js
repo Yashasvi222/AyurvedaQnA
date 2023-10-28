@@ -14,8 +14,20 @@ const SignInScreen = () => {
   const {height, width} = useWindowDimensions();
 
   const onSignInPressed = () => {
-    console.warn("NKBH")
-  }
+    if (!username) {
+      console.warn('Please enter your username.');
+    }
+    else if (!password) {
+      console.warn('Please enter your password');
+    } else {
+      console.warn('Signed In');
+    }
+  };
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
 
   return (
     <View style={[styles.root, {height: height}]}>
