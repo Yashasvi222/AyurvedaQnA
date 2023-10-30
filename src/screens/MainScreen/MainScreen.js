@@ -1,12 +1,20 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View, Text, StyleSheet, useWindowDimensions, Image, StatusBar } from 'react-native'
+import React, {useState} from 'react'
+
 
 const MainScreen = () => {
+  const {height, width} = useWindowDimensions();
   return (
-    <View>
-      
+    <View style={[styles.root, {height: height}]}>
+
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+    root: {
+        alignItems: 'center',
+    },
+})
 
 export default MainScreen
