@@ -1,29 +1,31 @@
-import { View, Text, StyleSheet, useWindowDimensions, Image, StatusBar } from 'react-native'
-import React, {useState} from 'react'
-import { query } from '../../AuyrBotAPI'
+import { View, Text, Image, StyleSheet, useWindowDimensions } from 'react-native'
+import UpperGlaze from '../../../assets/SignIn/UpperGlaze.png'
+import LowerGlaze from '../../../assets/SignIn/LowerGlaze.png'
+import React from 'react'
 
 
 const MainScreen = () => {
-  const {height, width} = useWindowDimensions();
 
-  const result = query({
-    "query": "What does the term 'panchakarma' refer to in Ayurveda, and how many traditional cleansing actions are associated with it?",
-    "top_n": 3
-  }).then((response) => {
-    console.log(JSON.stringify(response));
-  });
+  const {height, width} = useWindowDimensions();
 
   return (
     <View style={[styles.root, {height: height}]}>
 
-    </View> 
+      <Image source={UpperGlaze}
+        style= {{width: width}}
+      />
+
+      <Text>MainScreen</Text>
+
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
-    root: {
-        alignItems: 'center',
-    },
+  root: {
+    alignItems: 'center',
+    backgroundColor: "#F8EFD0",
+  }
 })
 
 export default MainScreen

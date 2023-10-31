@@ -5,9 +5,7 @@ import CustomButton from '../../components/CustomButton/index.js'
 import Ayurbot from '../../../assets/SignIn/Ayurbot.png'
 import UpperGlaze from '../../../assets/SignIn/UpperGlaze.png'
 import LowerGlaze from '../../../assets/SignIn/LowerGlaze.png'
-import {Dimensions} from 'react-native';
 import { useNavigation } from '@react-navigation/native'
-import { Pressable } from 'react-native'
 
 const SignInScreen = () => {
 
@@ -43,7 +41,7 @@ const SignInScreen = () => {
     }).then((response) => {
       const check = JSON.stringify(response['msg'])
       if(check=='"Login Successful"'){
-        navigation.navigate('SignUpScreen')
+        navigation.navigate('MainScreen')
       } else {
         console.warn('This account does not exist, Create one')
       }

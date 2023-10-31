@@ -5,14 +5,30 @@ import CustomButton from '../../components/CustomButton/index.js'
 import Ayurbot from '../../../assets/SignIn/Ayurbot.png'
 import UpperGlaze from '../../../assets/SignIn/UpperGlaze.png'
 import LowerGlaze from '../../../assets/SignIn/LowerGlaze.png'
+import { useNavigation } from '@react-navigation/native'
 
 const SignUpScreen = () => {
+
+  async function query(data) {
+    const response = await fetch(
+      "https://ayurbot.azurewebsites.net/signup",
+      {
+        headers: { 'Content-Type': 'application/json' },
+        method: "POST",
+        body: JSON.stringify(data),
+      });
+    const result = await response.json();
+    return result;
+  }
+
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const {height, width} = useWindowDimensions();
+
+  const navigation=useNavigation();
 
   const onRegisterPressed = () => {
     if (!username) {
@@ -28,7 +44,19 @@ const SignUpScreen = () => {
     } else if (password !== confirmPassword) {
       console.warn('Passwords do not match!');
     } else {
-      console.warn('Registered');
+      const result = query({
+        "username": username,
+        "email": email,
+        "password": password
+    }).then((response) => {
+      // console.log(JSON.stringify(response));
+      const check = JSON.stringify(response['msg'])
+      if(check=='"Signup Successful"'){
+        navigation.navigate('MainScreen')
+      } else {
+        console.warn('SignUp Failed, Try Again')
+      }
+    });
     }
   };
   
