@@ -6,12 +6,28 @@ import Ayurbot from '../../../assets/SignIn/Ayurbot.png'
 import UpperGlaze from '../../../assets/SignIn/UpperGlaze.png'
 import LowerGlaze from '../../../assets/SignIn/LowerGlaze.png'
 import {Dimensions} from 'react-native';
+import { useNavigation } from '@react-navigation/native'
 
 const SignInScreen = () => {
+
+  async function query(data) {
+    const response = await fetch(
+      "https://ayurbot.azurewebsites.net//login",
+      {
+        headers: { 'Content-Type': 'application/json' },
+        method: "POST",
+        body: JSON.stringify(data),
+      });
+    const result = await response.json();
+    return result;
+  }
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   
   const {height, width} = useWindowDimensions();
+
+  const navigation=useNavigation();
 
   const onSignInPressed = () => {
     if (!username) {
@@ -20,10 +36,19 @@ const SignInScreen = () => {
     else if (!password) {
       console.warn('Please enter your password');
     } else {
-      console.warn('Signed In');
+    const result = query({
+      "username": username,
+      "password": password
+    }).then((response) => {
+      const check = JSON.stringify(response['msg'])
+      if(check=='"Login Successful"'){
+        navigation.navigate('SignUpScreen')
+      } else {
+        console.warn('This account does not exist, Create one')
+      }
+    });
     }
   };
-
 
   return (
     <View style={[styles.root, {height: height}]}>
