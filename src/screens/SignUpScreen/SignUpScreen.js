@@ -137,9 +137,9 @@ const styles = StyleSheet.create({
     },
 
     upper_glaze: {
-        position: 'absolute',
-        resizeMode: 'contain',
-    },
+      position: 'absolute',
+      resizeMode: 'contain',
+  },
 
     logo: {
       width: 148,

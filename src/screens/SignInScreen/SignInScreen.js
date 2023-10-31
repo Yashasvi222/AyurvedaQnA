@@ -41,7 +41,9 @@ const SignInScreen = () => {
     }).then((response) => {
       const check = JSON.stringify(response['msg'])
       if(check=='"Login Successful"'){
-        navigation.navigate('MainScreen')
+        navigation.navigate('MainScreen', {
+          userInfo: username,
+        })
       } else {
         console.warn('This account does not exist, Create one')
       }
