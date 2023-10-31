@@ -3,18 +3,19 @@ import { SafeAreaView, StyleSheet, Text, View, ActivityIndicator, ScrollView } f
 import SignInScreen from './src/screens/SignInScreen/SignInScreen';
 import SignUpScreen from './src/screens/SignUpScreen/SignUpScreen';
 import HomeScreen from './src/screens/HomeScreen/HomeScreen';
-import MainScreen from './src/screens/MainScreen/MainScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import HomeNavigator from './src/Navigations/HomeNavigator';
+
 
 
 
 const App = () => {
   return (
-    <ScrollView style={styles.root}>
-      <MainScreen/>
-      {/* <HomeScreen/>    */}
-      {/* <SignInScreen /> */}
-      {/* <SignUpScreen /> */}
-    </ScrollView>
+    <SafeAreaView style={styles.root}>
+      <NavigationContainer>
+        <HomeNavigator/>  
+      </NavigationContainer>
+    </SafeAreaView>
   )
 }
 

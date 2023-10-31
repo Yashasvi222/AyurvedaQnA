@@ -11,6 +11,8 @@ import Grass3 from '../../../assets/Grass_3.png'
 import LeftLeaf from '../../../assets/LeftLeaf.png'
 import RightLeaf from '../../../assets/RightLeaf.png'
 import PestleAndMortar from '../../../assets/PestleAndMortar.png'
+import { useNavigation } from '@react-navigation/native'
+
 
 
 
@@ -18,9 +20,15 @@ const HomeScreen = () => {
 
   const {height, width} = useWindowDimensions();
 
+  const navigation = useNavigation();
+
+  const onGetStarted = () => {
+      navigation.navigate('SignInScreen')
+  };
+
   return (
     <View style={[styles.root, {height: height}]}>
-      <StatusBar backgroundColor="black" />
+      <StatusBar backgroundColor='#FEEDB1' />
 
       <Image source={UpperGlaze}
         style= {{width: width}}
@@ -52,7 +60,11 @@ const HomeScreen = () => {
 
       <View 
         style={[styles.getStartedContainer, {top: height-1.014*height}]}>
-        <CustomButton text="Get Started" color="#883D33"/>
+        <CustomButton 
+        text="Get Started" 
+        color="#883D33"
+        onPress={onGetStarted}
+        />
       </View>
 
       <Image source={Grass}
@@ -78,6 +90,7 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   root: {
     alignItems: 'center',
+    backgroundColor: "#F8EFD0",
   },
 
   upper_glaze: {

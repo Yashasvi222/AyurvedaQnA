@@ -24,10 +24,6 @@ const SignInScreen = () => {
     }
   };
 
-  const validateEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
 
   return (
     <View style={[styles.root, {height: height}]}>
@@ -72,6 +68,7 @@ const SignInScreen = () => {
 const styles = StyleSheet.create({
   root: {
     alignItems: 'center',
+    backgroundColor: "#F8EFD0",
   },
 
   upper_glaze: {

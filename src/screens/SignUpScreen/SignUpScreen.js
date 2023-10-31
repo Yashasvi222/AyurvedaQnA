@@ -105,6 +105,7 @@ const SignUpScreen = () => {
 const styles = StyleSheet.create({
     root: {
         alignItems: 'center',
+        backgroundColor: "#F8EFD0",
     },
 
     upper_glaze: {
