@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, useWindowDimensions, Image, StatusBar } from 'react-native'
+import { View, Text, StyleSheet, useWindowDimensions, Image, StatusBar, TouchableOpacity } from 'react-native'
 import React, {useState} from 'react'
 import CustomInput from '../../components/CustomInput'
 import CustomButton from '../../components/CustomButton/index.js'
@@ -7,6 +7,7 @@ import UpperGlaze from '../../../assets/SignIn/UpperGlaze.png'
 import LowerGlaze from '../../../assets/SignIn/LowerGlaze.png'
 import {Dimensions} from 'react-native';
 import { useNavigation } from '@react-navigation/native'
+import { Pressable } from 'react-native'
 
 const SignInScreen = () => {
 
@@ -50,6 +51,10 @@ const SignInScreen = () => {
     }
   };
 
+  const onCreateAccount = () => {
+    navigation.navigate('SignUpScreen')
+  }
+
   return (
     <View style={[styles.root, {height: height}]}>
       <StatusBar backgroundColor="black" />
@@ -81,6 +86,10 @@ const SignInScreen = () => {
       color="#629035"
       onPress={onSignInPressed}
       />
+
+      <TouchableOpacity onPress={onCreateAccount} style={styles.account}>
+        <Text style={styles.account_text}>Create an Account</Text>
+      </TouchableOpacity>
       
       <Image source={LowerGlaze}
         style={[styles.lower_glaze, {top: height-height*0.2, width: width}]}
@@ -108,6 +117,20 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 80,
     resizeMode: 'contain',
+  },
+
+  account: {
+    backgroundColor: "#F8EFD0",
+    width: 125,
+    height: 21,
+    marginTop: 15,
+    alignItems:'center',
+    justifyContent:'center',
+  },
+
+  account_text: {
+    color: "#883D33",
+    fontWeight: "700",
   },
 
   lower_glaze: {
