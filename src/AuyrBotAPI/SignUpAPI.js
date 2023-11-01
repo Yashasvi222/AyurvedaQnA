@@ -1,3 +1,4 @@
+//function for making an api call to azure to register new userss
 async function query(data) {
 	const response = await fetch(
 		"https://ayurbot.azurewebsites.net/signup",

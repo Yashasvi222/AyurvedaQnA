@@ -1,3 +1,4 @@
+//function for making an api call to azure to authenticate existing users
 async function query(data) {
 	const response = await fetch(
 		"https://ayurbot.azurewebsites.net//login",

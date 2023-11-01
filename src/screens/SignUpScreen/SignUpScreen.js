@@ -49,10 +49,11 @@ const SignUpScreen = () => {
         "email": email,
         "password": password
     }).then((response) => {
-      // console.log(JSON.stringify(response));
       const check = JSON.stringify(response['msg'])
       if(check=='"Signup Successful"'){
-        navigation.navigate('MainScreen')
+        navigation.navigate('MainScreen', {
+          userInfo: username,
+        })
       } else {
         console.warn('SignUp Failed, Try Again')
       }
@@ -72,7 +73,7 @@ const SignUpScreen = () => {
 
   return (
     <View style={[styles.root, {height: height}]}>
-      <StatusBar backgroundColor="black" />
+      <StatusBar backgroundColor='#FEEDB1' />
 
       <Image source={UpperGlaze}
         style= {{width: width}}

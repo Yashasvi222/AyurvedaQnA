@@ -1,7 +1,7 @@
-import { View, Text, StyleSheet, Pressable, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Pressable, TouchableOpacity } from 'react-native' //importing the dependencies
 import React from 'react'
 
-const CustomButton = ({onPress, text, color}) => {
+const CustomButton = ({onPress, text, color}) => { //Passing required props to the CustomButtom component
   return (
     <TouchableOpacity activeOpacity={0.7} onPress={onPress} style={[styles.container, {backgroundColor: color}]}>
       <Text style={styles.text}>{text}</Text>

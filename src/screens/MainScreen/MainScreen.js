@@ -1,4 +1,4 @@
-import { View, Text, Image, StyleSheet, useWindowDimensions } from 'react-native'
+import { View, Text, Image, StyleSheet, useWindowDimensions, StatusBar } from 'react-native'
 import UpperGlaze from '../../../assets/SignIn/UpperGlaze.png'
 import LowerGlaze from '../../../assets/SignIn/LowerGlaze.png'
 import React, {useState} from 'react'
@@ -31,19 +31,28 @@ const MainScreen = ({route}) => {
   
   const onAnswerPressed = () => {
     if(!question) {
-      console.warn('Ask a fucking question bruh!')
+      console.warn('Ask a question')
     } else {
       const result = query({
-        "query": "What does the term 'panchakarma' refer to in Ayurveda, and how many traditional cleansing actions are associated with it?",
+        "query": question,
         "top_n": 3
     }).then((response) => {
-      console.log('------')
+      console.log(JSON.stringify(response))
       const answerFirst = (JSON.stringify(response[0].answer)).slice(1, -1)
       const answerSecond = (JSON.stringify(response[1].answer)).slice(1, -1)
       const answerThird = (JSON.stringify(response[2].answer)).slice(1, -1)
       setAnswerFirst(answerFirst);
       setAnswerSecond(answerSecond);
       setAnswerThird(answerThird);
+      if(response[0].score < 10e-7){
+        setAnswerFirst("This question isn't answerable")
+      }
+      if(response[1].score < 10e-7){
+        setAnswerSecond("This question isn't answerable")
+      }
+      if(response[2].score < 10e-7){
+        setAnswerThird("This question isn't answerable")
+      }
     });
     }
   }
@@ -51,6 +60,7 @@ const MainScreen = ({route}) => {
 
   return (
     <View style={[styles.root, {height: height}]}>
+      <StatusBar backgroundColor='#FEEDB1' />
 
       <Image source={UpperGlaze}
         style= {{width: width}}
@@ -66,7 +76,7 @@ const MainScreen = ({route}) => {
       setValue={setQuestion}
       secureTextEntry={false}
       />
-
+      
       <View style={styles.custom_output_container}>
         <CustomOutput
         text={answerFirst}

@@ -1,3 +1,4 @@
+//function for making api call to Azure which then makes an api call to Huggin face where the model is deployed
 async function query(data) {
 	const response = await fetch(
 		"https://ayurbot.azurewebsites.net/query",

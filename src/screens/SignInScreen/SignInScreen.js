@@ -57,7 +57,7 @@ const SignInScreen = () => {
 
   return (
     <View style={[styles.root, {height: height}]}>
-      <StatusBar backgroundColor="black" />
+      <StatusBar backgroundColor='#FEEDB1' />
 
       <Image source={UpperGlaze}
         style= {{width: width}}

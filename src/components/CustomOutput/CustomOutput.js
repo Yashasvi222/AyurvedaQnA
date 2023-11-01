@@ -11,7 +11,7 @@ const CustomOutput = ({text}) => {
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor: '#A86056',
+        backgroundColor: '#883D33',
         width: 296,
         height: 56,
         marginTop: 25,
